@@ -1,0 +1,28 @@
+<div class="container">
+    <h2><strong>Leave</strong></h2>
+    <form action="#" method="post">
+        <div class="form-group">
+            <label for="leaveReason">Leave Reason</label>
+            <select name="leaveReason" id="leaveReason" required>
+                <option value="">Select a reason</option>
+                <option value="vacation">Vacation</option>
+                <option value="sick">Sick Leave</option>
+                <option value="personal">Personal Leave</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="startDate">Start Date</label>
+            <input type="date" name="startDate" id="startDate" required>
+        </div>
+        <div class="form-group">
+            <label for="endDate">End Date</label>
+            <input type="date" name="endDate" id="endDate" required>
+        </div>
+        <div class="form-group">
+            <label for="leaveDescription">Leave Description</label>
+            <textarea name="leaveDescription" id="leaveDescription" rows="4" required></textarea>
+        </div>
+            <button class="button"type="submit">Submit</button>
+    </form>
+</div>
