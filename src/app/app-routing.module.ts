@@ -18,6 +18,7 @@ import { EmployeeDetailsComponent } from './components/employee-details/employee
 import { ApplyLeaveComponent } from './components/apply-leave/apply-leave.component';
 import { CheckLeaveStatusComponent } from './components/check-leave-status/check-leave-status.component';
 import { AllSalariesComponent } from './components/all-salaries/all-salaries.component';
+import { AddClassComponent } from './add-class/add-class.component';
 
 const routes: Routes = [
   {
@@ -72,6 +73,10 @@ const routes: Routes = [
       {
         path: 'manage-salary',
         component: ManageSalaryComponent,
+      },
+      {
+        path: 'add-class',
+        component: AddClassComponent,
       },
     ]
     },

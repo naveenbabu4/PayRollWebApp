@@ -19,4 +19,7 @@ addEmployee() {
 updateEmployee(){
   this.router.navigate(['/admin-dashboard/update-employee'])
 }
+addClass(){
+  this.router.navigate(['/admin-dashboard/add-class'])
+}
 }
