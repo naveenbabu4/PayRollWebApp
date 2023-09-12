@@ -27,6 +27,9 @@ import { EmployeeDetailsComponent } from './components/employee-details/employee
 import { ApplyLeaveComponent } from './components/apply-leave/apply-leave.component';
 import { CheckLeaveStatusComponent } from './components/check-leave-status/check-leave-status.component';
 import { AllSalariesComponent } from './components/all-salaries/all-salaries.component';
+import { FormsModule } from '@angular/forms'; 
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule} from '@angular/common/http'
 import { baseURL } from './shared/baseurl';
 
 
@@ -60,7 +63,10 @@ import { baseURL } from './shared/baseurl';
     MatSidenavModule,
     MatButtonModule,
     MatIconModule,
-    MatDividerModule
+    MatDividerModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     {provide:'BaseURL',useValue: baseURL}

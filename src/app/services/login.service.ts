@@ -14,13 +14,13 @@ export class LoginService {
     private processHTTPMsgService : ProcessHTTPMsgService) {
 
      }
-     sendLoginUser(message: Login): Observable<Login> {
+     async sendLoginUser(login: Login): Promise<Observable<Login>> {
       const httpOptions = {
         headers: new HttpHeaders({
           'Content-Type':  'application/json'
         })
       };
-      return this.http.post<Login>(baseURL + 'LoginUser',message, httpOptions)
+      return this.http.post<Login>(baseURL + 'LoginController/LoginUser',login, httpOptions)
         .pipe(catchError(this.processHTTPMsgService.handleError));
     }
 }
