@@ -1,5 +1,6 @@
 export class ChangePassword {
-    oldPassword!: string;
-    newPassword!: string;
+    Id!:string;
+    OldPassword!: string;
+    NewPassword!: string;
   }
   

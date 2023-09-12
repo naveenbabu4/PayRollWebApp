@@ -5,6 +5,7 @@ import { HttpClient} from '@angular/common/http'
 import { baseURL } from '../shared/baseurl';
 import { ProcessHTTPMsgService } from './process-httpmsg.service';
 import { Login } from '../models/login.model';
+import { ChangePassword } from '../models/change-password.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -21,6 +22,15 @@ export class LoginService {
         })
       };
       return this.http.post<Login>(baseURL + 'LoginController/LoginUser',login, httpOptions)
+        .pipe(catchError(this.processHTTPMsgService.handleError));
+    }
+    async changePassword(changePassword: ChangePassword): Promise<Observable<ChangePassword>> {
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json'
+        })
+      };
+      return this.http.post<ChangePassword>(baseURL + 'LoginController/ChangePassword',changePassword, httpOptions)
         .pipe(catchError(this.processHTTPMsgService.handleError));
     }
 }
