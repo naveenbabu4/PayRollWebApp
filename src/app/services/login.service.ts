@@ -4,6 +4,7 @@ import { catchError, Observable,map } from 'rxjs';
 import { HttpClient} from '@angular/common/http'
 import { baseURL } from '../shared/baseurl';
 import { ProcessHTTPMsgService } from './process-httpmsg.service';
+import { Login } from '../models/login.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,13 +14,13 @@ export class LoginService {
     private processHTTPMsgService : ProcessHTTPMsgService) {
 
      }
-     sendLoginUser(message: message): Observable<message> {
+     sendLoginUser(message: Login): Observable<Login> {
       const httpOptions = {
         headers: new HttpHeaders({
           'Content-Type':  'application/json'
         })
       };
-      return this.http.post<message>(baseURL + 'LoginUser',message, httpOptions)
+      return this.http.post<Login>(baseURL + 'LoginUser',message, httpOptions)
         .pipe(catchError(this.processHTTPMsgService.handleError));
     }
 }
