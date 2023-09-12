@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 >Add <b>Class</b></h2>
+                </div>
+                <form>
+                    <div class="form-group" novalidate [formGroup] = "allowanceLoginForm" (ngSubmit) = 'AddAllowance()'>
+                        <label for="firstName">Class Name</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Basic Salary</label>
+                        <input type="Number" id="basicsalary" name="basicSalary" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Travel Allowance</label>
+                        <input type="Number" id="travelAllowance" name="travelAllowance" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Medical Allowance</label>
+                        <input type="Number" id="medicalAllowance" name="medicalAllowance" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Washing Allowance</label>
+                        <input type="Number" id="washingAllowance" name="washingAllowance" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="submit-button">Submit</button>
+                        <button type="button" class="back-button">Back</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

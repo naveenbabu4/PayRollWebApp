@@ -31,6 +31,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http'
 import { baseURL } from './shared/baseurl';
+import { AddClassComponent } from './add-class/add-class.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { baseURL } from './shared/baseurl';
     EmployeeDetailsComponent,
     ApplyLeaveComponent,
     CheckLeaveStatusComponent,
-    AllSalariesComponent
+    AllSalariesComponent,
+    AddClassComponent
   ],
   imports: [
     BrowserModule,
