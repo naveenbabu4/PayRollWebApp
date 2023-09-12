@@ -1,4 +1,4 @@
-export class AddAdmin {
+export class AddEmployee {
     FirstName!: string;
     LastName!: string;
     Email!: string;
