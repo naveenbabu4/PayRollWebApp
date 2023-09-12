@@ -27,6 +27,7 @@ import { EmployeeDetailsComponent } from './components/employee-details/employee
 import { ApplyLeaveComponent } from './components/apply-leave/apply-leave.component';
 import { CheckLeaveStatusComponent } from './components/check-leave-status/check-leave-status.component';
 import { AllSalariesComponent } from './components/all-salaries/all-salaries.component';
+import { baseURL } from './shared/baseurl';
 
 
 @NgModule({
@@ -61,7 +62,9 @@ import { AllSalariesComponent } from './components/all-salaries/all-salaries.com
     MatIconModule,
     MatDividerModule
   ],
-  providers: [],
+  providers: [
+    {provide:'BaseURL',useValue: baseURL}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
