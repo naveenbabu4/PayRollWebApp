@@ -6,6 +6,7 @@ import { baseURL } from '../shared/baseurl';
 import { ProcessHTTPMsgService } from './process-httpmsg.service';
 import { Login } from '../models/login.model';
 import { ChangePassword } from '../models/change-password.model';
+import { LoginViewModel } from '../models/LoginViewModel';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,13 +16,13 @@ export class LoginService {
     private processHTTPMsgService : ProcessHTTPMsgService) {
 
      }
-     async sendLoginUser(login: Login): Promise<Observable<Login>> {
+     async sendLoginUser(login: Login): Promise<Observable<LoginViewModel>> {
       const httpOptions = {
         headers: new HttpHeaders({
           'Content-Type':  'application/json'
         })
       };
-      return this.http.post<Login>(baseURL + 'LoginController/LoginUser',login, httpOptions)
+      return this.http.post<LoginViewModel>(baseURL + 'LoginController/LoginUser',login, httpOptions)
         .pipe(catchError(this.processHTTPMsgService.handleError));
     }
     async changePassword(changePassword: ChangePassword): Promise<Observable<ChangePassword>> {
@@ -30,7 +31,7 @@ export class LoginService {
           'Content-Type':  'application/json'
         })
       };
-      return this.http.post<ChangePassword>(baseURL + 'LoginController/ChangePassword',changePassword, httpOptions)
+      return this.http.post<ChangePassword>(baseURL + 'LoginController/',changePassword, httpOptions)
         .pipe(catchError(this.processHTTPMsgService.handleError));
     }
 }

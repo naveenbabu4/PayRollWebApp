@@ -21,21 +21,17 @@ export class AddClassComponent implements OnInit {
 
   createForm(){
     this.allowanceLoginForm = this.fb.group({
-      Email : "",
-      TypeId :0,
       ClassName:"",
       BasicSalary:"",
-      HRAllowance:"",
-      DAAllowance:"",
       TravelAllowance:"",
       MedicalAllowance:"",
       WashingAllowance:"",
-      LeaveDeduction:""
     });
   }
   async AddAllowance(){
     this.allowance = this.allowanceLoginForm.value;
     console.log(this.allowance);
+    debugger
     (await this.adminService.AddAllowanceUser(this.allowance))
     .subscribe(
       allowance => {this.allowance = allowance,console.log(allowance)} ,

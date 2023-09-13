@@ -9,12 +9,25 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./employee-details.component.css']
 })
 export class EmployeeDetailsComponent implements OnInit {
-  id = sessionStorage.getItem('id');
+ 
+  id !: string | null
+  user !: UserViewModel
   constructor(private employeeService : EmployeeService,
     private userService : UserService){
 
   }
-  ngOnInit(): void {
-    console.log(this.id);
+  async ngOnInit(): Promise<void> {
+    this.id = localStorage.getItem('id');
+    if (this.id) {
+      const user = await (await this.employeeService.GetEmployeeById(this.id)).toPromise();
+      
+      if (user) {
+        this.user = user;
+      } else {
+        this.user;
+      }
+    } else {
+      this.id;
+    }
   }
 }
