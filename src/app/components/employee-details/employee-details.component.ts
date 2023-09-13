@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Login } from 'src/app/models/login.model';
 import { UserViewModel } from 'src/app/models/user.model';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { UserService } from 'src/app/services/user.service';
@@ -8,12 +9,12 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./employee-details.component.css']
 })
 export class EmployeeDetailsComponent implements OnInit {
-  user = this.userService.user;
+  id = sessionStorage.getItem('id');
   constructor(private employeeService : EmployeeService,
     private userService : UserService){
 
   }
   ngOnInit(): void {
-    console.log(this.user);
+    console.log(this.id);
   }
 }

@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit{
     loginForm !: FormGroup;
     login!: Login;
     errMess!:string;
-    user !: UserViewModel;
+    user!: string;
     constructor(private fb:FormBuilder,private loginService:LoginService,
       private userService:UserService ){
       this.createForm();
@@ -33,9 +33,13 @@ export class LoginComponent implements OnInit{
       console.log(this.login);
       (await this.loginService.sendLoginUser(this.login))
       .subscribe(
-        login => {this.login = login,console.log(login),console.log(this.userService.setUser(login))} ,
+        async login => {this.login = login,console.log(login),
+
+        sessionStorage.setItem('id',JSON.stringify(login)),
+        this.userService.setUser(sessionStorage['id'])} ,
         errMess => { this.login = <any> null;this.errMess = <any>errMess;}
       )
+      
       this.loginForm.reset();
     }
 }
