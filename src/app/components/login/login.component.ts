@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Login } from 'src/app/models/login.model';
+import { UserViewModel } from 'src/app/models/user.model';
 import { LoginService } from 'src/app/services/login.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -12,8 +14,9 @@ export class LoginComponent implements OnInit{
     loginForm !: FormGroup;
     login!: Login;
     errMess!:string;
-
-    constructor(private fb:FormBuilder,private loginService:LoginService ){
+    user !: UserViewModel;
+    constructor(private fb:FormBuilder,private loginService:LoginService,
+      private userService:UserService ){
       this.createForm();
     }
     ngOnInit() : void{
@@ -30,7 +33,7 @@ export class LoginComponent implements OnInit{
       console.log(this.login);
       (await this.loginService.sendLoginUser(this.login))
       .subscribe(
-        login => {this.login = login,console.log(login)} ,
+        login => {this.login = login,console.log(login),console.log(this.userService.setUser(login))} ,
         errMess => { this.login = <any> null;this.errMess = <any>errMess;}
       )
       this.loginForm.reset();
