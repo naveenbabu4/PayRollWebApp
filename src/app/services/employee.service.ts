@@ -23,8 +23,8 @@ export class EmployeeService {
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 
-  async GetEmployeeById(id : string | null):Promise<Observable<UserViewModel>>{
-    return this.http.get<UserViewModel>(baseURL + "EmployeeController/GetEmployeeById")
+  async GetEmployeeById(id : string):Promise<Observable<UserViewModel>>{
+    return this.http.get<UserViewModel>(baseURL + "EmployeeController/GetEmployeeById/"+id)
     .pipe(map(users => users))
     .pipe(catchError(this.processHTTPMsgService.handleError));
   }

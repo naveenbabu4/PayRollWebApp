@@ -18,9 +18,10 @@ export class EmployeeDetailsComponent implements OnInit {
   }
   async ngOnInit(): Promise<void> {
     this.id = localStorage.getItem('id');
+    console.log(this.id);
     if (this.id) {
       const user = await (await this.employeeService.GetEmployeeById(this.id)).toPromise();
-      
+      console.log(this.user);
       if (user) {
         this.user = user;
       } else {
