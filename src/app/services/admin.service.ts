@@ -13,10 +13,6 @@ import { catchError, Observable,map } from 'rxjs';
 export class AdminService {
   constructor(private http:HttpClient, private processHTTPMsgService:ProcessHTTPMsgService) { }
 
-  ngOnInit(): void {
-    
-  }
-
   async AddAllowanceUser(allowance: Allowance):Promise<Observable<Allowance>> {
     const httpOptions = {
       headers: new HttpHeaders({

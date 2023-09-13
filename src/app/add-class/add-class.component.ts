@@ -38,7 +38,7 @@ export class AddClassComponent implements OnInit {
     console.log(this.allowance);
     (await this.adminService.AddAllowanceUser(this.allowance))
     .subscribe(
-      login => {this.allowance = login,console.log(login)} ,
+      allowance => {this.allowance = allowance,console.log(allowance)} ,
       errMess => { this.allowance = <any> null;this.errMessage = <any>errMess;}
     )
     this.allowanceLoginForm.reset();
