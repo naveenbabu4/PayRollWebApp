@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { AddEmployee } from 'src/app/models/add-employee.model';
 import { AdminService } from 'src/app/services/admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-employee',
@@ -14,7 +15,7 @@ export class AddEmployeeComponent implements OnInit {
   addEmployee!: AddEmployee;
   errMessage!: string;
   
-  constructor(private fb: FormBuilder, private adminService: AdminService) { }
+  constructor(private fb: FormBuilder, private adminService: AdminService, private router: Router) { }
 
   ngOnInit(): void {
     this.createForm();
@@ -43,5 +44,7 @@ export class AddEmployeeComponent implements OnInit {
     this.addEmployeeForm.reset();
   }
 
-
+  goToManageEmployees() {
+    this.router.navigate(['/admin-dashboard/all-employees']);
+  }
 }

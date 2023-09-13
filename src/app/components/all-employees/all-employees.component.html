@@ -25,13 +25,13 @@
                     </tr>
                 </thead>
                 <tbody>
-					<tr>
-                        <td>Maria Anders</td>
-                        <td>mariaanders@mail.com</td>
-                        <td>Bangalore</td>
-                        <td>(503) 555-9931</td>
-                        <td>Analyst A4</td>
-                        <td>21-05-2022</td>
+					<tr *ngFor="let employee of employees">
+                        <td>{{employee.fullName}}</td>
+                        <td>{{employee.email}}</td>
+                        <td>{{employee.address}}</td>
+                        <td>{{employee.phoneNumber}}</td>
+                        <td>{{employee.position}}</td>
+                        <td>{{employee.joiningDate}}</td>
                         <td>
                             <div class="button-container">
                                 <button class="update" (click)="updateEmployee()">Update</button>

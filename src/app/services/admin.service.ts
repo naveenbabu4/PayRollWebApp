@@ -6,6 +6,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { baseURL } from '../shared/baseurl';
 import { catchError, Observable,map } from 'rxjs';
 import { AddEmployee } from '../models/add-employee.model';
+import { UserViewModel } from '../models/user.model';
 
 
 @Injectable({
@@ -35,4 +36,9 @@ export class AdminService {
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
  
+  async GetEmployee():Promise<Observable<UserViewModel>>{
+    return this.http.get<UserViewModel>(baseURL + "")
+    .pipe(map(users => users))
+    .pipe(catchError(this.processHTTPMsgService.handleError));
+  }
 }

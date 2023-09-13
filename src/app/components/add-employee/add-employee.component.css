@@ -18,6 +18,8 @@ body {
 .form-group {
     margin-bottom: 16px;
     display:inline-block;
+    width:auto;
+    gap: 10px;
 }
 
 label {
