@@ -20,13 +20,15 @@ export class ChangePasswordComponent implements OnInit {
   }
   CreateForm(){
     this.changePasswordForm = this.fb.group({
-      Id : "548edf9a-f32b-4af2-8547-50bd74762612",
+      Id : "",
       OldPassword : "",
       NewPassword : ""
     });
   }
   async ChangePassword(){
+    
     this.changePassword = this.changePasswordForm.value;
+    this.changePassword.Id = "548edf9a-f32b-4af2-8547-50bd74762612";
     console.log(this.changePassword);
     (await this.loginService.changePassword(this.changePassword))
       .subscribe(
