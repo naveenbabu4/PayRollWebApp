@@ -5,26 +5,26 @@
                 <div class="col-sm-12">
                     <h2 >Add <b>Class</b></h2>
                 </div>
-                <form>
-                    <div class="form-group" novalidate [formGroup] = "allowanceLoginForm" (ngSubmit) = 'AddAllowance()'>
+                <form novalidate [formGroup] = "allowanceLoginForm" (ngSubmit) = 'AddAllowance()'>
+                    <div class="form-group" >
                         <label for="firstName">Class Name</label>
-                        <input type="text" id="firstName" name="firstName" required>
+                        <input type="text" id="firstName" formControlName="ClassName" required>
                     </div>
                     <div class="form-group">
                         <label for="lastName">Basic Salary</label>
-                        <input type="Number" id="basicsalary" name="basicSalary" required>
+                        <input type="Number" id="basicsalary" formControlName="BasicSalary" required>
                     </div>
                     <div class="form-group">
                         <label for="lastName">Travel Allowance</label>
-                        <input type="Number" id="travelAllowance" name="travelAllowance" required>
+                        <input type="Number" id="travelAllowance" formControlName="TravelAllowance" required>
                     </div>
                     <div class="form-group">
                         <label for="lastName">Medical Allowance</label>
-                        <input type="Number" id="medicalAllowance" name="medicalAllowance" required>
+                        <input type="Number" id="medicalAllowance" formControlName="MedicalAllowance" required>
                     </div>
                     <div class="form-group">
                         <label for="lastName">Washing Allowance</label>
-                        <input type="Number" id="washingAllowance" name="washingAllowance" required>
+                        <input type="Number" id="washingAllowance" formControlName="WashingAllowance" required>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="submit-button">Submit</button>

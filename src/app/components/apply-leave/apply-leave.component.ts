@@ -16,7 +16,7 @@ export class ApplyLeaveComponent implements OnInit{
   constructor(private fb:FormBuilder, private employeeService:EmployeeService ) { }
 
   ngOnInit(): void {
-    
+      this.createForm();
   }
 
   createForm(){

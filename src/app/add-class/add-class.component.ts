@@ -16,13 +16,13 @@ export class AddClassComponent implements OnInit {
   constructor(private fb:FormBuilder,private adminService:AdminService ) { }
 
   ngOnInit(): void {
-    
+    this.createForm();
   }
 
   createForm(){
     this.allowanceLoginForm = this.fb.group({
       Email : "",
-      TypeId :"",
+      TypeId :0,
       ClassName:"",
       BasicSalary:"",
       HRAllowance:"",
