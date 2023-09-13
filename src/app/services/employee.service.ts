@@ -6,6 +6,7 @@ import { baseURL } from '../shared/baseurl';
 import { ProcessHTTPMsgService } from './process-httpmsg.service';
 import { UserViewModel } from '../models/user.model';
 import { ApplyLeave } from '../models/apply-leave.model';
+import { AddSalary } from '../models/add-salary.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -25,9 +26,19 @@ export class EmployeeService {
 
   async GetEmployeeById(id : string | null):Promise<Observable<UserViewModel>>{
     return this.http.get<UserViewModel>(baseURL + "EmployeeController/GetEmployeeById")
+    .pipe(catchError(this.processHTTPMsgService.handleError));
+  }
+
+  async GetLeaves():Promise<Observable<ApplyLeave>>{
+    return this.http.get<ApplyLeave>(baseURL + "")
     .pipe(map(users => users))
     .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 
+  async GetSalaryDetails():Promise<Observable<AddSalary>>{
+    return this.http.get<AddSalary>(baseURL + "")
+    .pipe(map(users => users))
+    .pipe(catchError(this.processHTTPMsgService.handleError));
+  }
   
 }

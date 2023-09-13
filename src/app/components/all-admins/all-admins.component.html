@@ -25,14 +25,14 @@
                     </tr>
                 </thead>
                 <tbody>
-					<tr>
-                        <td>Maria</td>
-                        <td>Anders</td>
-                        <td>mariaanders@mail.com</td>
-                        <td>Bangalore</td>
-                        <td>(503) 555-9931</td>
-                        <td>22-02-2022</td>
-                        <td>Analyst</td>
+					<tr *ngFor="let admin of admins">
+                        <td>{{admin.FirstName}}</td>
+                        <td>{{admin.LastName}}</td>
+                        <td>{{admin.Email}}</td>
+                        <td>{{admin.Address}}</td>
+                        <td>{{admin.PhoneNumber}}</td>
+                        <td>{{admin.JoiningDate}}</td>
+                        <td>{{admin.Position}}</td>
                         <td>
                             <div class="button-container">
                                 <button class="update" (click)="updateAdmin()" >Update</button>

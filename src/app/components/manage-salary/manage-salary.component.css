@@ -206,19 +206,21 @@ table.table .avatar {
     color: #fff;
     cursor: pointer;
   }
-.update{
+.generate{
     background-color: #4CAF50;;
     color: #fff; 
     border: none;
     margin-right: 5px;
     padding: 8px 10px;
     border-radius: 4px;
+    cursor: pointer;
 }
-.delete{
+.report{
     background-color: #4CAF50;;
     color: #fff; 
     border: none;
     margin-right: 5px;
     padding: 8px 10px;
     border-radius: 4px;
+    cursor: pointer;
 }

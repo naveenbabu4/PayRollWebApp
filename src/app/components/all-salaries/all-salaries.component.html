@@ -11,35 +11,35 @@
             <table>
                 <tr>
                     <td><b>Basic Salary  </b></td>
-                    <td>18000</td>
+                    <td *ngFor="let salarydetail of salarydetails" >{{salarydetail.BasicSalary}}</td>
                 </tr>
                 <tr>
                     <td><b>HR Allowance  </b></td>
-                    <td>2000</td>
+                    <td *ngFor="let salarydetail of salarydetails">{{salarydetail.HRAllowance}}</td>
                 </tr>
                 <tr>
                     <td><b>DA Allowance </b></td>
-                    <td>1000</td>
+                    <td *ngFor="let salarydetail of salarydetails">{{salarydetail.DAAllowance}}</td>
                 </tr>
                 <tr>
                     <td><b>Travel Allowance  </b></td>
-                    <td>500</td>
+                    <td *ngFor="let salarydetail of salarydetails">{{salarydetail.TravelAllowance}}</td>
                 </tr>
                 <tr>
                     <td><b>Medical Allowance  </b></td>
-                    <td>1500</td>
+                    <td *ngFor="let salarydetail of salarydetails">{{salarydetail.MedicalAllowance}}</td>
                 </tr>
                 <tr>
                     <td><b>Washing Allowance  </b></td>
-                    <td>100</td>
+                    <td *ngFor="let salarydetail of salarydetails">{{salarydetail.WashingAllowance}}</td>
                 </tr>
                 <tr>
-                    <td><b>Leave Deduction  </b></td>
-                    <td>0</td>
+                    <td><b>Total Deduction  </b></td>
+                    <td *ngFor="let salarydetail of salarydetails">{{salarydetail.TotalDeductions}}</td>
                 </tr>
                 <tr>
                     <td><b>Net Salary  </b></td>
-                    <td>25000</td>
+                    <td *ngFor="let salarydetail of salarydetails">{{salarydetail.NetSalary}}</td>
                 </tr>
             </table>
             <br />
