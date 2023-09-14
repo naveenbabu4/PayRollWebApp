@@ -11,10 +11,10 @@
                         <input type="text" id="firstName" formControlName="FirstName" required>
                         <div
                             *ngIf="addEmployeeForm.get('FirstName')?.invalid &&(addEmployeeForm.get('FirstName')?.touched ||addEmployeeForm.get('FirstName')?.dirty)">
-                            <div *ngIf="addEmployeeForm.get('FirstName')?.errors?.['required']" class="text-danger">
+                            <div class="errMessClass" *ngIf="addEmployeeForm.get('FirstName')?.errors?.['required']">
                                 First Name is required.
                             </div>
-                            <div *ngIf="addEmployeeForm.get('FirstName')?.errors?.['pattern']" class="text-danger">
+                            <div class="errMessClass" *ngIf="addEmployeeForm.get('FirstName')?.errors?.['pattern']">
                                 Invalid First Name.
                             </div>
                         </div>
@@ -24,10 +24,10 @@
                         <input type="text" id="lastName" formControlName="LastName" required>
                         <div
                             *ngIf="addEmployeeForm.get('LastName')?.invalid &&(addEmployeeForm.get('LastName')?.dirty ||addEmployeeForm.get('LastName')?.touched)">
-                            <div *ngIf="addEmployeeForm.get('LastName')?.errors?.['required']" class="text-danger">
+                            <div *ngIf="addEmployeeForm.get('LastName')?.errors?.['required']" class="errMessClass">
                                 Last Name is required.
                             </div>
-                            <div *ngIf="addEmployeeForm.get('LastName')?.errors?.['pattern']" class="text-danger">
+                            <div *ngIf="addEmployeeForm.get('LastName')?.errors?.['pattern']" class="errMessClass">
                                 Invalid Last Name.
                             </div>
                         </div>
@@ -37,10 +37,10 @@
                         <input type="email" id="email" formControlName="Email" required>
                         <div
                             *ngIf="addEmployeeForm.get('Email')?.invalid &&(addEmployeeForm.get('Email')?.dirty ||addEmployeeForm.get('Email')?.touched)">
-                            <div *ngIf="addEmployeeForm.get('Email')?.errors?.['required']" class="text-danger">
+                            <div *ngIf="addEmployeeForm.get('Email')?.errors?.['required']" class="errMessClass">
                                 Email is required.
                             </div>
-                            <div *ngIf="addEmployeeForm.get('Email')?.errors?.['email']" class="text-danger">
+                            <div *ngIf="addEmployeeForm.get('Email')?.errors?.['email']" class="errMessClass">
                                 Invalid Email Format.
                             </div>
                         </div>
@@ -50,10 +50,10 @@
                         <input type="text" id="address" formControlName="Address" required>
                         <div
                             *ngIf="addEmployeeForm.get('Address')?.invalid &&(addEmployeeForm.get('Address')?.dirty || addEmployeeForm.get('Address')?.touched)">
-                            <div *ngIf="addEmployeeForm.get('Address')?.errors?.['required']" class="text-danger">
+                            <div *ngIf="addEmployeeForm.get('Address')?.errors?.['required']" class="errMessClass">
                                 Address is required.
                             </div>
-                            <div *ngIf="addEmployeeForm.get('Address')?.errors?.['pattern']" class="text-danger">
+                            <div *ngIf="addEmployeeForm.get('Address')?.errors?.['pattern']" class="errMessClass">
                                 Invalid Address.
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                         <input type="password" id="password" formControlName="Password" required>
                         <div
                             *ngIf="addEmployeeForm.get('Password')?.invalid &&(addEmployeeForm.get('Password')?.dirty ||addEmployeeForm.get('Password')?.touched)">
-                            <div *ngIf="addEmployeeForm.get('Password')?.errors?.['required']" class="text-danger">
+                            <div *ngIf="addEmployeeForm.get('Password')?.errors?.['required']" class="errMessClass">
                                 Password is required.
                             </div>
                         </div>
@@ -79,10 +79,10 @@
                         <input type="tel" id="phone" formControlName="PhoneNumber" required>
                         <div
                             *ngIf="addEmployeeForm.get('PhoneNumber')?.invalid &&(addEmployeeForm.get('PhoneNumber')?.dirty ||addEmployeeForm.get('PhoneNumber')?.touched)">
-                            <div *ngIf="addEmployeeForm.get('PhoneNumber')?.errors?.['required']" class="text-danger">
+                            <div *ngIf="addEmployeeForm.get('PhoneNumber')?.errors?.['required']" class="errMessClass">
                                 PhoneNumber is required.
                             </div>
-                            <div *ngIf="addEmployeeForm.get('PhoneNumber')?.errors?.['pattern']" class="text-danger">
+                            <div *ngIf="addEmployeeForm.get('PhoneNumber')?.errors?.['pattern']" class="errMessClass">
                                 Invalid Phone Number.
                             </div>
                         </div>
@@ -92,10 +92,10 @@
                         <input type="text" id="position" formControlName="Position" required>
                         <div
                             *ngIf="addEmployeeForm.get('Position')?.invalid &&(addEmployeeForm.get('Position')?.dirty || addEmployeeForm.get('Position')?.touched)">
-                            <div *ngIf="addEmployeeForm.get('Position')?.errors?.['required']" class="text-danger">
+                            <div *ngIf="addEmployeeForm.get('Position')?.errors?.['required']" class="errMessClass">
                                 Address is required.
                             </div>
-                            <div *ngIf="addEmployeeForm.get('Position')?.errors?.['pattern']" class="text-danger">
+                            <div *ngIf="addEmployeeForm.get('Position')?.errors?.['pattern']" class="errMessClass">
                                 Invalid Address.
                             </div>
                         </div>
@@ -105,7 +105,7 @@
                         <input type="date" id="joinDate" formControlName="JoiningDate" required>
                         <div
                             *ngIf="addEmployeeForm.get('JoiningDate')?.invalid &&(addEmployeeForm.get('JoiningDate')?.dirty ||addEmployeeForm.get('JoiningDate')?.touched) ">
-                            <div *ngIf="addEmployeeForm.get('JoiningDate')?.errors?.['required']" class="text-danger">
+                            <div *ngIf="addEmployeeForm.get('JoiningDate')?.errors?.['required']" class="errMessClass">
                                 Date Of Join is required.
                             </div>
                         </div>
