@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AddAdmin } from 'src/app/models/add-admin.model';
+import { UserViewModel } from 'src/app/models/user.model';
 import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
@@ -10,45 +12,48 @@ import { AdminService } from 'src/app/services/admin.service';
 export class AdminDetailsComponent implements OnInit {
 
   id !: string | null
-  admin !: AddAdmin
+  admin !: UserViewModel
   errMess!: string
 
-  constructor(private adminService: AdminService) {
+  constructor(private router: Router, private adminService: AdminService) {
 
   }
   async ngOnInit(): Promise<void> {
-
-    this.id = localStorage.getItem('id');
-
-    console.log(this.id);
-
-    if (this.id) {
-
-      (await this.adminService.GetAdminById(this.id)).subscribe(
-
-        (result: AddAdmin) => {
-
-          this.admin = result;
-
-          console.log(this.admin);
-
-        },
-
-        (errMess: string) => {
-
-          this.admin;
-
-          this.errMess = errMess;
-
-        }
-
-      );
-
-    } else {
-
-      this.id = null;
-
+    if (localStorage.length == 0) {
+      this.router.navigate(['/login']);
     }
+    else {
+      this.id = localStorage.getItem('id');
 
+      console.log(this.id);
+
+      if (this.id) {
+
+        (await this.adminService.GetAdminById(this.id)).subscribe(
+
+          (result: UserViewModel) => {
+
+            this.admin = result;
+
+            console.log(this.admin);
+
+          },
+
+          (errMess: string) => {
+
+            this.admin;
+
+            this.errMess = errMess;
+
+          }
+
+        );
+
+      } else {
+
+        this.id = null;
+
+      }
+    }
   }
 }

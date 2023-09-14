@@ -18,6 +18,9 @@ export class AddAdminsComponent implements OnInit{
   constructor(private fb: FormBuilder, private adminService: AdminService, private router: Router) { }
 
   ngOnInit(): void {
+    if(localStorage.length== 0){
+      this.router.navigate(['/login']);
+    }
     this.createForm();
   }
 

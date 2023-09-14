@@ -1,5 +1,6 @@
 import { Component ,OnInit} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ChangePassword } from 'src/app/models/change-password.model';
 import { LoginService } from 'src/app/services/login.service';
 
@@ -12,11 +13,13 @@ export class ChangePasswordComponent implements OnInit {
   changePasswordForm!: FormGroup;
   changePassword!:ChangePassword;
   errMess!:string;
-  constructor(private loginService:LoginService,private fb:FormBuilder){
+  constructor(private router:Router, private loginService:LoginService,private fb:FormBuilder){
       this.CreateForm();
   }
   ngOnInit(): void {
-    
+    if (localStorage.length == 0) {
+      this.router.navigate(['/login']);
+    }
   }
   CreateForm(){
     this.changePasswordForm = this.fb.group({

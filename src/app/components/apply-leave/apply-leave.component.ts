@@ -14,16 +14,21 @@ export class ApplyLeaveComponent implements OnInit{
   applyLeaveForm!:FormGroup;
   applyLeave!:ApplyLeave;
   errMessage!:string;
+  userId!:string | null;
   constructor(private fb:FormBuilder, private employeeService:EmployeeService,
     private router:Router ) { }
 
   ngOnInit(): void {
+    if (localStorage.length == 0) {
+      this.router.navigate(['/login']);
+    }
+    this.userId = localStorage.getItem('id');
       this.createForm();
   }
 
   createForm(){
     this.applyLeaveForm = this.fb.group({
-      Id : localStorage.getItem('id'),
+      Id : "",
       LeaveType: "",
       LeaveStartDate: "",
       LeaveEndDate: "",
@@ -32,6 +37,7 @@ export class ApplyLeaveComponent implements OnInit{
   }
   async ApplyLeave(){
     this.applyLeave = this.applyLeaveForm.value;
+    this.applyLeave.Id = this.userId;
     console.log(this.applyLeave);
     debugger
     (await this.employeeService.ApplyLeave(this.applyLeave))

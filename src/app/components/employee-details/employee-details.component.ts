@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Login } from 'src/app/models/login.model';
 import { UserViewModel } from 'src/app/models/user.model';
 import { EmployeeService } from 'src/app/services/employee.service';
@@ -14,12 +15,14 @@ export class EmployeeDetailsComponent implements OnInit {
   user !: UserViewModel
   errMess!:string
   
-  constructor(private employeeService : EmployeeService,
+  constructor(private router:Router,private employeeService : EmployeeService,
     private userService : UserService){
 
   }
   async ngOnInit(): Promise<void> {
-
+    if (localStorage.length == 0) {
+      this.router.navigate(['/login']);
+    }
     this.id = localStorage.getItem('id');
 
   console.log(this.id);

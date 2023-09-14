@@ -28,8 +28,8 @@ export class AdminService {
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 
-  async GetAdminById(id : string | null):Promise<Observable<AddAdmin>>{
-    return this.http.get<AddAdmin>(baseURL + "AdminController/GetAdminById/"+id)
+  async GetAdminById(id : string | null):Promise<Observable<UserViewModel>>{
+    return this.http.get<UserViewModel>(baseURL + "AdminController/GetAdminById/"+id)
     .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 
@@ -61,8 +61,8 @@ export class AdminService {
     .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 
-  async GetAdmin():Promise<Observable<AddAdmin[]>>{
-    return this.http.get<AddAdmin[]>(baseURL + "AdminController/GetAllAdmins")
+  async GetAdmin():Promise<Observable<UserViewModel[]>>{
+    return this.http.get<UserViewModel[]>(baseURL + "AdminController/GetAllAdmins")
     .pipe(map(users => users))
     .pipe(catchError(this.processHTTPMsgService.handleError));
   }

@@ -1,5 +1,5 @@
 export class ApplyLeave {
-    Id!:string;
+    Id!:string | null;
     LeaveType!: string;
     LeaveStartDate!: Date;
     LeaveEndDate!: Date;

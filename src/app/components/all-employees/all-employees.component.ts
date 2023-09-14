@@ -18,7 +18,9 @@ employees!: UserViewModel[];
   constructor(private router: Router, private adminService: AdminService) { }
 
   async ngOnInit(): Promise<void> {
-
+    if (localStorage.length == 0) {
+      this.router.navigate(['/login']);
+    }
     const data = await (await this.adminService.GetEmployee()).toPromise();
 
     if (data) {

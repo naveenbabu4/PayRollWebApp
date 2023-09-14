@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AddSalary } from 'src/app/models/add-salary.model';
 import { EmployeeService } from 'src/app/services/employee.service';
 
@@ -9,13 +10,15 @@ import { EmployeeService } from 'src/app/services/employee.service';
 })
 export class AllSalariesComponent {
 
-
+  
   salarydetails:AddSalary [] = [];
 
-  constructor(private employeeService: EmployeeService) {}
+  constructor(private router:Router, private employeeService: EmployeeService) {}
 
   ngOnInit(): void {
-
+    if (localStorage.length == 0) {
+      this.router.navigate(['/login']);
+    }
     this.employeeService.GetSalaryDetails();
 
   }
