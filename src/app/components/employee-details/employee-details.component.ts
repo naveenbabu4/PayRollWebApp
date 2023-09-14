@@ -12,22 +12,45 @@ export class EmployeeDetailsComponent implements OnInit {
  
   id !: string | null
   user !: UserViewModel
+  errMess!:string
+  
   constructor(private employeeService : EmployeeService,
     private userService : UserService){
 
   }
   async ngOnInit(): Promise<void> {
+
     this.id = localStorage.getItem('id');
-    if (this.id) {
-      const user = await (await this.employeeService.GetEmployeeById(this.id)).toPromise();
-      
-      if (user) {
-        this.user = user;
-      } else {
+
+  console.log(this.id);
+
+  if (this.id) {
+
+    (await this.employeeService.GetEmployeeById(this.id)).subscribe(
+
+      (result: UserViewModel) => {
+
+        this.user = result;
+
+        console.log(this.user);
+
+      },
+
+      (errMess: string) => {
+
         this.user;
+
+        this.errMess = errMess;
+
       }
-    } else {
-      this.id;
-    }
+
+    );
+
+  } else {
+
+    this.id = null;
+
+  }
+
   }
 }

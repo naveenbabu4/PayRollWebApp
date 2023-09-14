@@ -31,7 +31,7 @@
                         <td>{{employee.address}}</td>
                         <td>{{employee.phoneNumber}}</td>
                         <td>{{employee.position}}</td>
-                        <td>{{employee.joiningDate}}</td>
+                        <td>{{employee.joiningDate | date}}</td>
                         <td>
                             <div class="button-container">
                                 <button class="update" (click)="updateEmployee()">Update</button>

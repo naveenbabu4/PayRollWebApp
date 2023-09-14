@@ -50,8 +50,8 @@ export class AdminService {
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 
-  async GetEmployee():Promise<Observable<UserViewModel>>{
-    return this.http.get<UserViewModel>(baseURL + "")
+  async GetEmployee():Promise<Observable<UserViewModel[]>>{
+    return this.http.get<UserViewModel[]>(baseURL + "AdminController/GetAllEmployees")
     .pipe(map(users => users))
     .pipe(catchError(this.processHTTPMsgService.handleError));
   }

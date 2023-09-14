@@ -2,6 +2,7 @@ import { Component,OnInit} from '@angular/core';
 import { FormGroup,FormBuilder } from '@angular/forms';
 import { Allowance } from '../models/allowance.model';
 import { AdminService } from '../services/admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-class',
@@ -13,7 +14,7 @@ export class AddClassComponent implements OnInit {
   allowanceLoginForm!:FormGroup;
   allowance!:Allowance;
   errMessage!:string;
-  constructor(private fb:FormBuilder,private adminService:AdminService ) { }
+  constructor(private fb:FormBuilder,private adminService:AdminService, private router: Router) { }
 
   ngOnInit(): void {
     this.createForm();
@@ -40,4 +41,7 @@ export class AddClassComponent implements OnInit {
     this.allowanceLoginForm.reset();
   }
 
+  goToManageEmployees() {
+    this.router.navigate(['/admin-dashboard/all-employees']);
+  }
 }

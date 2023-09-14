@@ -10,17 +10,29 @@ import { AdminService } from 'src/app/services/admin.service';
 })
 export class AllEmployeesComponent implements OnInit {
 
-  employees: UserViewModel[] = [];
+
+employees!: UserViewModel[];
+
+ 
 
   constructor(private router: Router, private adminService: AdminService) { }
-  ngOnInit(): void {
 
-    this.adminService.GetEmployee();
+  async ngOnInit(): Promise<void> {
 
+    const data = await (await this.adminService.GetEmployee()).toPromise();
+
+    if (data) {
+
+      this.employees = data;
+
+      console.log(this.employees);
+
+    } else {
+
+      this.employees = [];
+
+    }
   }
-
-
-
   addEmployee() {
     this.router.navigate(['/admin-dashboard/add-employee']);
   }

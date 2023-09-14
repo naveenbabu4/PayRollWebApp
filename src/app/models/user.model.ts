@@ -10,4 +10,5 @@ export class UserViewModel {
     phoneNumber !: string;
     joiningDate  !: Date;
     position!: string;
+    roleName!: string;
 }
