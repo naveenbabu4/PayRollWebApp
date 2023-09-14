@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AddEmployee } from 'src/app/models/add-employee.model';
 import { AdminService } from 'src/app/services/admin.service';
 import { Router } from '@angular/router';
@@ -22,6 +22,26 @@ export class AddEmployeeComponent implements OnInit {
       this.router.navigate(['/login']);
     }
     this.createForm();
+
+    this.addEmployeeForm = this.fb.group({
+      FirstName: [
+        '',
+        [Validators.required, Validators.pattern('[A-Za-z]{1,32}')],
+      ],
+      LastName: [
+        '',
+        [Validators.required, Validators.pattern('[A-Za-z]{1,32}')],
+      ],
+      Email: ['', [Validators.required, Validators.email]],
+      PhoneNumber: [
+        '',
+        [Validators.required, Validators.pattern('^[789]\\d{9}$')],
+      ],
+      Address: ['', Validators.required,Validators.pattern('[A-Za-z]{1,32}')],
+      Position: ['', Validators.required,Validators.pattern('[A-Za-z]{1,32}')],
+      JoiningDate: ['', Validators.required],
+      Password: ['', Validators.required],
+    });
   }
 
   createForm() {
