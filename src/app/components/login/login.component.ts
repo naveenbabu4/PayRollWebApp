@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup,Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { Login } from 'src/app/models/login.model';
 import { UserViewModel } from 'src/app/models/user.model';
@@ -23,6 +23,11 @@ export class LoginComponent implements OnInit{
       this.createForm();
     }
     ngOnInit() : void{
+
+      this.loginForm = this.fb.group({
+        userName: ['', Validators.required],
+        password: ['', Validators.required],
+      });
 
     }
     createForm(){

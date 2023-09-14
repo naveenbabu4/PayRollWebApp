@@ -1,5 +1,5 @@
 import { Component ,OnInit} from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { ChangePassword } from 'src/app/models/change-password.model';
 import { LoginService } from 'src/app/services/login.service';
@@ -20,6 +20,12 @@ export class ChangePasswordComponent implements OnInit {
     if (localStorage.length == 0) {
       this.router.navigate(['/login']);
     }
+
+    this.changePasswordForm = this.fb.group({
+      OldPassword: ['', Validators.required],
+      NewPassword: ['', Validators.required],
+    });
+
   }
   CreateForm(){
     this.changePasswordForm = this.fb.group({

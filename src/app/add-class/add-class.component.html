@@ -3,32 +3,69 @@
         <div class="table-title">
             <div class="row">
                 <div class="col-sm-12">
-                    <h2 >Add <b>Class</b></h2>
+                    <h2>Add <b>Class</b></h2>
                 </div>
-                <form novalidate [formGroup] = "allowanceLoginForm" (ngSubmit) = 'AddAllowance()'>
-                    <div class="form-group" >
-                        <label for="firstName">Class Name</label>
-                        <input type="text" id="firstName" formControlName="ClassName" required>
+                <form novalidate [formGroup]="allowanceLoginForm" (ngSubmit)='AddAllowance()'>
+                    <div class="form-group">
+                        <label for="className">Class Name</label>
+                        <input type="text" id="className" formControlName="ClassName" required>
+                        <div
+                            *ngIf="allowanceLoginForm.get('ClassName')?.invalid &&(allowanceLoginForm.get('ClassName')?.touched ||allowanceLoginForm.get('ClassName')?.dirty)">
+                            <div class="errMessClass" *ngIf="allowanceLoginForm.get('ClassName')?.errors?.['required']">
+                                First Name is required.
+                            </div>
+                            <div class="errMessClass" *ngIf="allowanceLoginForm.get('ClassName')?.errors?.['pattern']">
+                                Invalid First Name.
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="lastName">Basic Salary</label>
                         <input type="Number" id="basicsalary" formControlName="BasicSalary" required>
+                        <div
+                            *ngIf="allowanceLoginForm.get('BasicSalary')?.invalid &&(allowanceLoginForm.get('BasicSalary')?.dirty ||allowanceLoginForm.get('BasicSalary')?.touched)">
+                            <div *ngIf="allowanceLoginForm.get('BasicSalary')?.errors?.['required']"
+                                class="errMessClass">
+                                Password is required.
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="lastName">Travel Allowance</label>
                         <input type="Number" id="travelAllowance" formControlName="TravelAllowance" required>
+                        <div
+                            *ngIf="allowanceLoginForm.get('TravelAllowance')?.invalid &&(allowanceLoginForm.get('TravelAllowance')?.dirty ||allowanceLoginForm.get('TravelAllowance')?.touched)">
+                            <div *ngIf="allowanceLoginForm.get('TravelAllowance')?.errors?.['required']"
+                                class="errMessClass">
+                                Password is required.
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="lastName">Medical Allowance</label>
                         <input type="Number" id="medicalAllowance" formControlName="MedicalAllowance" required>
+                        <div
+                            *ngIf="allowanceLoginForm.get('MedicalAllowance')?.invalid &&(allowanceLoginForm.get('MedicalAllowance')?.dirty ||allowanceLoginForm.get('MedicalAllowance')?.touched)">
+                            <div *ngIf="allowanceLoginForm.get('MedicalAllowance')?.errors?.['required']"
+                                class="errMessClass">
+                                Password is required.
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="lastName">Washing Allowance</label>
                         <input type="Number" id="washingAllowance" formControlName="WashingAllowance" required>
+                        <div
+                            *ngIf="allowanceLoginForm.get('WashingAllowance')?.invalid &&(allowanceLoginForm.get('WashingAllowance')?.dirty ||allowanceLoginForm.get('WashingAllowance')?.touched)">
+                            <div *ngIf="allowanceLoginForm.get('WashingAllowance')?.errors?.['required']"
+                                class="errMessClass">
+                                Password is required.
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="submit-button">Submit</button>
-                        <button type="button" class="back-button"  (click)="goToManageEmployees()">Back</button>
+                        <button type="button" class="back-button" (click)="goToManageEmployees()">Back</button>
                     </div>
                 </form>
             </div>

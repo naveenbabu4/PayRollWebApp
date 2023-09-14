@@ -1,5 +1,5 @@
 import { Component,OnInit} from '@angular/core';
-import { FormGroup,FormBuilder } from '@angular/forms';
+import { FormGroup,FormBuilder, Validators } from '@angular/forms';
 import { Allowance } from '../models/allowance.model';
 import { AdminService } from '../services/admin.service';
 import { Router } from '@angular/router';
@@ -18,6 +18,16 @@ export class AddClassComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm();
+
+    this.allowanceLoginForm = this.fb.group({
+      ClassName: ['',[Validators.required, Validators.pattern('[A-Za-z]{1,32}')],],
+      BasicSalary: ['', Validators.required],
+      TravelAllowance: ['', Validators.required],
+      MedicalAllowance: ['', Validators.required],
+      WashingAllowance: ['', Validators.required],
+    });
+
+
   }
 
   createForm(){
