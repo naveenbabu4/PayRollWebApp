@@ -36,9 +36,9 @@ export class AddAdminsComponent implements OnInit{
   async AddAdmin() {
     this.addAdmin = this.addAdminForm.value;
     console.log(this.addAdmin);
-    (await this.adminService.AddEmployee(this.addAdmin))
+    (await this.adminService.AddAdmin(this.addAdmin))
       .subscribe(
-        addAdmin => { this.addAdmin = addAdmin, console.log(addAdmin) },
+        addAdmin => { this.addAdmin = addAdmin, console.log(addAdmin),this.router.navigate(['admin-dashboard/all-admins']) },
         errMessage => { this.addAdmin = <any>null; this.errMessage = <any>errMessage; }
       )
     this.addAdminForm.reset();

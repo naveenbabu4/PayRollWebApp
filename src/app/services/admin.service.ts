@@ -28,6 +28,11 @@ export class AdminService {
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 
+  async GetAdminById(id : string | null):Promise<Observable<AddAdmin>>{
+    return this.http.get<AddAdmin>(baseURL + "AdminController/GetAdminById/"+id)
+    .pipe(catchError(this.processHTTPMsgService.handleError));
+  }
+
 
   async AddEmployee(addEmployee: AddEmployee):Promise<Observable<AddEmployee>> {
     const httpOptions = {
@@ -46,7 +51,7 @@ export class AdminService {
         'Content-Type':  'application/json'
       })
     };
-    return this.http.post<AddAdmin>(baseURL + '',addAdmin, httpOptions)
+    return this.http.post<AddAdmin>(baseURL + 'AdminController/CreateAdmin',addAdmin, httpOptions)
       .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 
