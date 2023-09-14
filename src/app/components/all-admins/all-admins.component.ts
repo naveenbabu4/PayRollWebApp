@@ -10,12 +10,24 @@ import { AdminService } from 'src/app/services/admin.service';
 })
 export class AllAdminsComponent implements OnInit{
 
-  admins:AddAdmin [] = [];
+  admins!:AddAdmin[];
 
   constructor(private router: Router, private adminService: AdminService) {}
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    const data = await (await this.adminService.GetAdmin()).toPromise();
 
+    if (data) {
+
+      this.admins = data;
+
+      console.log(this.admins);
+
+    } else {
+
+      this.admins = [];
+
+    }
     this.adminService.GetAdmin();
 
   }

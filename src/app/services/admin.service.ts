@@ -56,8 +56,8 @@ export class AdminService {
     .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 
-  async GetAdmin():Promise<Observable<AddAdmin>>{
-    return this.http.get<AddAdmin>(baseURL + "")
+  async GetAdmin():Promise<Observable<AddAdmin[]>>{
+    return this.http.get<AddAdmin[]>(baseURL + "AdminController/GetAllAdmins")
     .pipe(map(users => users))
     .pipe(catchError(this.processHTTPMsgService.handleError));
   }

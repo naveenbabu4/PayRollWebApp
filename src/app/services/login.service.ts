@@ -31,7 +31,7 @@ export class LoginService {
           'Content-Type':  'application/json'
         })
       };
-      return this.http.post<ChangePassword>(baseURL + 'LoginController/',changePassword, httpOptions)
+      return this.http.post<ChangePassword>(baseURL + 'LoginController/ChangePassword',changePassword, httpOptions)
         .pipe(catchError(this.processHTTPMsgService.handleError));
     }
 }

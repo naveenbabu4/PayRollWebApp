@@ -25,7 +25,7 @@ export class EmployeeService {
   }
 
   async GetEmployeeById(id : string | null):Promise<Observable<UserViewModel>>{
-    return this.http.get<UserViewModel>(baseURL + "EmployeeController/GetEmployeeById")
+    return this.http.get<UserViewModel>(baseURL + "EmployeeController/GetEmployeeById/"+id)
     .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 
