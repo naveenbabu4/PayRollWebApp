@@ -11,9 +11,9 @@ export class UpdateLeaveComponent implements OnInit{
 
   }
   ngOnInit(): void {
-    if (localStorage.length == 0) {
-      this.router.navigate(['/login']);
-    }
+    // if (localStorage.length == 0) {
+    //   this.router.navigate(['/login']);
+    // }
   }
 
 }
