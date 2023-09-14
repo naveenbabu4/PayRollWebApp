@@ -7,6 +7,7 @@ import { ProcessHTTPMsgService } from './process-httpmsg.service';
 import { UserViewModel } from '../models/user.model';
 import { ApplyLeave } from '../models/apply-leave.model';
 import { AddSalary } from '../models/add-salary.model';
+import { LeaveViewModel } from '../models/LeaveViewModel';
 @Injectable({
   providedIn: 'root'
 })
@@ -29,9 +30,8 @@ export class EmployeeService {
     .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 
-  async GetLeaves():Promise<Observable<ApplyLeave>>{
-    return this.http.get<ApplyLeave>(baseURL + "")
-    .pipe(map(users => users))
+  async GetLeaves(id :string | null):Promise<Observable<LeaveViewModel[]>>{
+    return this.http.get<LeaveViewModel[]>(baseURL + "EmployeeController/GetAllLeavesById/"+id)
     .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 
@@ -40,5 +40,8 @@ export class EmployeeService {
     .pipe(map(users => users))
     .pipe(catchError(this.processHTTPMsgService.handleError));
   }
-  
+  async GetAllLeaves():Promise<Observable<ApplyLeave[]>>{
+    return this.http.get<ApplyLeave[]>(baseURL + "")
+    .pipe(catchError(this.processHTTPMsgService.handleError));
+  }
 }

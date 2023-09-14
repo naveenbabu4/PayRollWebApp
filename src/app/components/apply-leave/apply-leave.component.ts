@@ -28,7 +28,7 @@ export class ApplyLeaveComponent implements OnInit{
 
   createForm(){
     this.applyLeaveForm = this.fb.group({
-      Id : "",
+      UserId : "",
       LeaveType: "",
       LeaveStartDate: "",
       LeaveEndDate: "",
@@ -37,7 +37,7 @@ export class ApplyLeaveComponent implements OnInit{
   }
   async ApplyLeave(){
     this.applyLeave = this.applyLeaveForm.value;
-    this.applyLeave.Id = this.userId;
+    this.applyLeave.UserId = this.userId;
     console.log(this.applyLeave);
     debugger
     (await this.employeeService.ApplyLeave(this.applyLeave))

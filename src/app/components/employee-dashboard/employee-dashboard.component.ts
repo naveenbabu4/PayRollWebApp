@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApplyLeave } from 'src/app/models/apply-leave.model';
 import { EmployeeService } from 'src/app/services/employee.service';
 
@@ -11,11 +12,14 @@ export class EmployeeDashboardComponent {
 
   leaves: ApplyLeave[] = [];
 
-  constructor(private employeeService: EmployeeService) { }
+  constructor(private router:Router,private employeeService: EmployeeService) { }
 
  ngOnInit(): void {
+  if (localStorage.length == 0) {
+    this.router.navigate(['/login']);
+  }
 
-  this.employeeService.GetLeaves();
+  this.employeeService.GetAllLeaves();
  }
 
 }

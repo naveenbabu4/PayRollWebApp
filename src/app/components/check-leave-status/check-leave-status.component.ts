@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { ApplyLeave } from 'src/app/models/apply-leave.model';
+import { LeaveViewModel } from 'src/app/models/LeaveViewModel';
 import { EmployeeService } from 'src/app/services/employee.service';
 
 @Component({
@@ -8,14 +10,28 @@ import { EmployeeService } from 'src/app/services/employee.service';
   styleUrls: ['./check-leave-status.component.css']
 })
 export class CheckLeaveStatusComponent {
+  id!:string | null;
+  leaves!: LeaveViewModel[];
 
-  leaves: ApplyLeave[] = [];
+  constructor(private router:Router,private employeeService: EmployeeService) { }
 
-  constructor(private employeeService: EmployeeService) { }
+ async ngOnInit(): Promise<void> {
+  if (localStorage.length == 0) {
+    this.router.navigate(['/login']);
+  }
+  this.id = localStorage.getItem('id');
+  const data = await (await this.employeeService.GetLeaves(this.id)).toPromise();
+  console.log(data);
+  if (data) {
 
- ngOnInit(): void {
+    this.leaves = data;
 
-  this.employeeService.GetLeaves();
+    console.log(this.leaves);
+
+  } else {
+
+    this.leaves = [];
+
+  }
  }
-
 }
