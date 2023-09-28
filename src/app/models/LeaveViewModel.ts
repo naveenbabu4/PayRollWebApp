@@ -1,9 +1,14 @@
 export class LeaveViewModel {
+    id!:number;
     leaveType!: string;
     leaveStartDate!: Date;
     leaveEndDate!: Date;
     reason!: string;
-    status!:string;
+    leaveStatus!:string;
+    firstName !:string;
+    lastName!:string;
+    fullName!:string;
+    email!:string;
   }
   
 

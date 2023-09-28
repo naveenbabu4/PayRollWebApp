@@ -58,6 +58,7 @@ export class AddAdminsComponent implements OnInit{
   }
   async AddAdmin() {
     this.addAdmin = this.addAdminForm.value;
+    debugger
     console.log(this.addAdmin);
     (await this.adminService.AddAdmin(this.addAdmin))
       .subscribe(

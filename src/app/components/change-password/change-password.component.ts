@@ -13,6 +13,7 @@ export class ChangePasswordComponent implements OnInit {
   changePasswordForm!: FormGroup;
   changePassword!:ChangePassword;
   errMess!:string;
+  id!:string | null;
   constructor(private router:Router, private loginService:LoginService,private fb:FormBuilder){
       this.CreateForm();
   }
@@ -20,7 +21,7 @@ export class ChangePasswordComponent implements OnInit {
     if (localStorage.length == 0) {
       this.router.navigate(['/login']);
     }
-
+    this.id = localStorage.getItem('id');
     this.changePasswordForm = this.fb.group({
       OldPassword: ['', Validators.required],
       NewPassword: ['', Validators.required],
@@ -29,7 +30,7 @@ export class ChangePasswordComponent implements OnInit {
   }
   CreateForm(){
     this.changePasswordForm = this.fb.group({
-      Id : localStorage.getItem('id'),
+      Id : "",
       OldPassword : "",
       NewPassword : ""
     });
@@ -37,10 +38,12 @@ export class ChangePasswordComponent implements OnInit {
   async ChangePassword(){
     
     this.changePassword = this.changePasswordForm.value;
+    this.changePassword.Id = this.id;
     console.log(this.changePassword);
     (await this.loginService.changePassword(this.changePassword))
       .subscribe(
-        changePassword => {this.changePassword = changePassword,console.log(changePassword)} ,
+        changePassword => {this.changePassword = changePassword,console.log(changePassword),
+        this.router.navigate(['/login'])} ,
         errMess => { this.changePassword = <any> null;this.errMess = <any>errMess;}
       )
   }

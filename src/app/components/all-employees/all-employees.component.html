@@ -34,8 +34,7 @@
                         <td>{{employee.joiningDate | date}}</td>
                         <td>
                             <div class="button-container">
-                                <button class="update" (click)="updateEmployee()">Update</button>
-                                <button class="delete">Delete</button>
+                                <button class="update" (click)="updateEmployee(employee.id)">Update</button>
                               </div> 
                         </td>
                     </tr>

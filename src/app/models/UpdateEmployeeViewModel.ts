@@ -1,4 +1,5 @@
-export class AddEmployee {
+export class UpdateEmployeeViewModel {
+    Id!:string |null;
     FirstName!: string;
     LastName!: string;
     Email!: string;

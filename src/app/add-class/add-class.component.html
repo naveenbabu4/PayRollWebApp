@@ -14,9 +14,6 @@
                             <div class="errMessClass" *ngIf="allowanceLoginForm.get('ClassName')?.errors?.['required']">
                                 First Name is required.
                             </div>
-                            <div class="errMessClass" *ngIf="allowanceLoginForm.get('ClassName')?.errors?.['pattern']">
-                                Invalid First Name.
-                            </div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -31,15 +28,63 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="lastName">Travel Allowance</label>
+
+                        <label for="hRAllowance">HR Allowance</label>
+
+                        <input type="Number" id="hRAllowance" formControlName="HRAllowance" required>
+
+                        <div
+                            *ngIf="allowanceLoginForm.get('HRAllowance')?.invalid &&(allowanceLoginForm.get('HRAllowance')?.dirty ||allowanceLoginForm.get('HRAllowance')?.touched)">
+
+                            <div *ngIf="allowanceLoginForm.get('HRAllowance')?.errors?.['required']"
+                                class="errMessClass">
+
+                                HR Allowance is required.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="dAAllowance">DA Allowance</label>
+
+                        <input type="Number" id="dAAllowance" formControlName="DAAllowance" required>
+
+                        <div
+                            *ngIf="allowanceLoginForm.get('DAAllowance')?.invalid &&(allowanceLoginForm.get('DAAllowance')?.dirty ||allowanceLoginForm.get('DAAllowance')?.touched)">
+
+                            <div *ngIf="allowanceLoginForm.get('DAAllowance')?.errors?.['required']"
+                                class="errMessClass">
+
+                                DA Allowance is required.
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="travelAllowance">Travel Allowance</label>
+
                         <input type="Number" id="travelAllowance" formControlName="TravelAllowance" required>
+
                         <div
                             *ngIf="allowanceLoginForm.get('TravelAllowance')?.invalid &&(allowanceLoginForm.get('TravelAllowance')?.dirty ||allowanceLoginForm.get('TravelAllowance')?.touched)">
+
                             <div *ngIf="allowanceLoginForm.get('TravelAllowance')?.errors?.['required']"
                                 class="errMessClass">
-                                Password is required.
+
+                                Travel Allowance is required.
+
                             </div>
+
                         </div>
+
                     </div>
                     <div class="form-group">
                         <label for="lastName">Medical Allowance</label>
@@ -48,7 +93,7 @@
                             *ngIf="allowanceLoginForm.get('MedicalAllowance')?.invalid &&(allowanceLoginForm.get('MedicalAllowance')?.dirty ||allowanceLoginForm.get('MedicalAllowance')?.touched)">
                             <div *ngIf="allowanceLoginForm.get('MedicalAllowance')?.errors?.['required']"
                                 class="errMessClass">
-                                Password is required.
+                                Medical is required.
                             </div>
                         </div>
                     </div>
@@ -59,7 +104,7 @@
                             *ngIf="allowanceLoginForm.get('WashingAllowance')?.invalid &&(allowanceLoginForm.get('WashingAllowance')?.dirty ||allowanceLoginForm.get('WashingAllowance')?.touched)">
                             <div *ngIf="allowanceLoginForm.get('WashingAllowance')?.errors?.['required']"
                                 class="errMessClass">
-                                Password is required.
+                                Washing is required.
                             </div>
                         </div>
                     </div>

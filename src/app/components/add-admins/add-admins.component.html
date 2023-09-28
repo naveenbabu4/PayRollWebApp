@@ -7,13 +7,14 @@
                 </div>
                 <form novalidate [formGroup]="addAdminForm" (ngSubmit)='AddAdmin()'>
                     <div class="form-group">
-                        <label for="lastName">First Name</label>
-                        <input type="text" id="firstName" FormControlName="FirstName" required>
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" formControlName="FirstName" required>
                         <div
                             *ngIf="addAdminForm.get('FirstName')?.invalid &&(addAdminForm.get('FirstName')?.touched ||addAdminForm.get('FirstName')?.dirty)">
                             <div class="errMessClass" *ngIf="addAdminForm.get('FirstName')?.errors?.['required']">
                                 First Name is required.
                             </div>
+                        
                             <div class="errMessClass" *ngIf="addAdminForm.get('FirstName')?.errors?.['pattern']">
                                 Invalid First Name.
                             </div>
@@ -21,7 +22,7 @@
                     </div>
                     <div class="form-group">
                         <label for="lastName">last Name</label>
-                        <input type="text" id="lastName" FormControlName="LastName" required>
+                        <input type="text" id="lastName" formControlName="LastName" required>
                         <div
                             *ngIf="addAdminForm.get('LastName')?.invalid &&(addAdminForm.get('LastName')?.dirty ||addAdminForm.get('LastName')?.touched)">
                             <div *ngIf="addAdminForm.get('LastName')?.errors?.['required']" class="errMessClass">
@@ -85,7 +86,7 @@
                     </div>
                     <div class="form-group">
                         <label for="joinDate">Date of Joining</label>
-                        <input type="date" id="joinDate" formControlName="joiningDate" required>
+                        <input type="date" id="joinDate" formControlName="JoiningDate" required>
                         <div
                             *ngIf="addAdminForm.get('JoiningDate')?.invalid &&(addAdminForm.get('JoiningDate')?.dirty ||addAdminForm.get('JoiningDate')?.touched) ">
                             <div *ngIf="addAdminForm.get('JoiningDate')?.errors?.['required']" class="errMessClass">

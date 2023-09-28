@@ -38,7 +38,8 @@ employees!: UserViewModel[];
   addEmployee() {
     this.router.navigate(['/admin-dashboard/add-employee']);
   }
-  updateEmployee() {
+  updateEmployee(id:string) {
+    localStorage.setItem('updateId',id);
     this.router.navigate(['/admin-dashboard/update-employee'])
   }
   addClass() {

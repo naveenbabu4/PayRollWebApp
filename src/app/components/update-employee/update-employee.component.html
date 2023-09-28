@@ -5,42 +5,38 @@
                 <div class="col-sm-12">
                     <h2 >Update <b>Employees</b></h2>
                 </div>
-                <form>
+                <form [formGroup]="updateEmployeeForm" (ngSubmit)="UpdateEmployee()">
                     <div class="form-group">
                         <label for="firstName">First Name</label>
-                        <input type="text" id="firstName" name="firstName" required>
+                        <input type="text" formControlName="FirstName" required>
                     </div>
                     <div class="form-group">
                         <label for="lastName">Last Name</label>
-                        <input type="text" id="lastName" name="lastName" required>
+                        <input type="text" id="lastName" formControlName="LastName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" id="address" formControlName="Address" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" formControlName="Email" required>
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="designation">Designation</label>
-                        <select id="RoleLabel" formControlName="Role">
-                            <option value="" disabled>Select Role</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="role">Role</label>
-                        <select id="RoleLabel" formControlName="Role">
-                            <option value="" disabled>Select Role</option>
-                        </select>
+                        <input type="tel" id="phone" formControlName="PhoneNumber" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
                     </div>
                     <div class="form-group">
                         <label for="joinDate">Date of Joining</label>
-                        <input type="date" id="joinDate" name="joinDate" required>
+                        <input type="date" id="joinDate" formControlName="JoiningDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="position">Position</label>
+                        <input type="text" id="address" formControlName="Position" required>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="submit-button">Submit</button>
-                        <button type="button" class="back-button">Back</button>
+                        <button type="button" class="back-button" (click) = "GoBack()">Back</button>
                     </div>
                 </form>
             </div>

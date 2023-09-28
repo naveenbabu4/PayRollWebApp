@@ -8,6 +8,8 @@ import { UserViewModel } from '../models/user.model';
 import { ApplyLeave } from '../models/apply-leave.model';
 import { AddSalary } from '../models/add-salary.model';
 import { LeaveViewModel } from '../models/LeaveViewModel';
+import { AllowanceViewModel } from '../models/AllowanceViewModel';
+import { SalaryViewModel } from '../models/SalaryViewModel';
 @Injectable({
   providedIn: 'root'
 })
@@ -29,6 +31,10 @@ export class EmployeeService {
     return this.http.get<UserViewModel>(baseURL + "EmployeeController/GetEmployeeById/"+id)
     .pipe(catchError(this.processHTTPMsgService.handleError));
   }
+  async GetAdminById(id : string | null):Promise<Observable<UserViewModel>>{
+    return this.http.get<UserViewModel>(baseURL + "AdminController/GetAdminById/"+id)
+    .pipe(catchError(this.processHTTPMsgService.handleError));
+  }
 
   async GetLeaves(id :string | null):Promise<Observable<LeaveViewModel[]>>{
     return this.http.get<LeaveViewModel[]>(baseURL + "EmployeeController/GetAllLeavesById/"+id)
@@ -42,6 +48,14 @@ export class EmployeeService {
   }
   async GetAllLeaves():Promise<Observable<ApplyLeave[]>>{
     return this.http.get<ApplyLeave[]>(baseURL + "")
+    .pipe(catchError(this.processHTTPMsgService.handleError));
+  }
+  async GetAllAllowances():Promise<Observable<AllowanceViewModel[]>>{
+    return this.http.get<AllowanceViewModel[]>(baseURL + "AdminController/GetAllAllowances")
+    .pipe(catchError(this.processHTTPMsgService.handleError));
+  }
+  async GenerateSalary(id : string | null):Promise<Observable<SalaryViewModel>>{
+    return this.http.get<SalaryViewModel>(baseURL + "AdminController/GenerateSalary/"+id)
     .pipe(catchError(this.processHTTPMsgService.handleError));
   }
 }

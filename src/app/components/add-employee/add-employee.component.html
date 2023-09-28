@@ -11,10 +11,11 @@
                         <input type="text" id="firstName" formControlName="FirstName" required>
                         <div
                             *ngIf="addEmployeeForm.get('FirstName')?.invalid &&(addEmployeeForm.get('FirstName')?.touched ||addEmployeeForm.get('FirstName')?.dirty)">
-                            <div class="errMessClass" *ngIf="addEmployeeForm.get('FirstName')?.errors?.['required']" class="errMessClass">
+                            <div class="errMessClass" *ngIf="addEmployeeForm.get('FirstName')?.errors?.['required']">
                                 First Name is required.
                             </div>
-                            <div class="errMessClass" *ngIf="addEmployeeForm.get('FirstName')?.errors?.['pattern']" class="errMessClass">
+
+                            <div class="errMessClass" *ngIf="addEmployeeForm.get('FirstName')?.errors?.['pattern']">
                                 Invalid First Name.
                             </div>
                         </div>
@@ -71,7 +72,9 @@
                     </div>
                     <div class="form-group">
                         <label for="class">Class</label>
-                        <select name="Select" id="class">
+                        <select formControlName="AllowanceId" id="class">
+                            <option *ngFor="let allowance of allowances" [value]="allowance.id">{{allowance.className}}
+                            </option>
                         </select>
                     </div>
                     <div class="form-group">

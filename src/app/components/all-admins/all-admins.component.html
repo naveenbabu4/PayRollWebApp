@@ -31,12 +31,11 @@
                         <td>{{admin.email}}</td>
                         <td>{{admin.address}}</td>
                         <td>{{admin.phoneNumber}}</td>
-                        <td>{{admin.joiningDate}}</td>
+                        <td>{{admin.joiningDate | date}}</td>
                         <td>{{admin.position}}</td>
                         <td>
                             <div class="button-container">
-                                <button class="update" (click)="updateAdmin()" >Update</button>
-                                <button class="delete">Delete</button>
+                                <button class="update" (click)="updateAdmin(admin.id)" >Update</button>
                               </div> 
                         </td>
                     </tr>

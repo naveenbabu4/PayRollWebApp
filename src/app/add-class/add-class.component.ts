@@ -17,11 +17,16 @@ export class AddClassComponent implements OnInit {
   constructor(private fb:FormBuilder,private adminService:AdminService, private router: Router) { }
 
   ngOnInit(): void {
+    if(localStorage.length== 0){
+      this.router.navigate(['/login']);
+    }
     this.createForm();
 
     this.allowanceLoginForm = this.fb.group({
-      ClassName: ['',[Validators.required, Validators.pattern('[A-Za-z]{1,32}')],],
+      ClassName: ['',[Validators.required]],
       BasicSalary: ['', Validators.required],
+      HRAllowance: ['', Validators.required],
+      DAAllowance: ['', Validators.required],
       TravelAllowance: ['', Validators.required],
       MedicalAllowance: ['', Validators.required],
       WashingAllowance: ['', Validators.required],
@@ -34,6 +39,8 @@ export class AddClassComponent implements OnInit {
     this.allowanceLoginForm = this.fb.group({
       ClassName:"",
       BasicSalary:"",
+      HRAllowance:"",
+      DAAllowance:"",
       TravelAllowance:"",
       MedicalAllowance:"",
       WashingAllowance:"",
@@ -45,7 +52,7 @@ export class AddClassComponent implements OnInit {
     debugger
     (await this.adminService.AddAllowanceUser(this.allowance))
     .subscribe(
-      allowance => {this.allowance = allowance,console.log(allowance)} ,
+      allowance => {this.allowance = allowance,console.log(allowance),this.router.navigate(['admin-dashboard/admin-details'])} ,
       errMess => { this.allowance = <any> null;this.errMessage = <any>errMess;}
     )
     this.allowanceLoginForm.reset();

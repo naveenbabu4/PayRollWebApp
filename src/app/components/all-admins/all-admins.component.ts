@@ -40,7 +40,8 @@ export class AllAdminsComponent implements OnInit{
   addAdmin() {
     this.router.navigate(['/admin-dashboard/add-admin']);
   }
-  updateAdmin(){
+  updateAdmin(id:string){
+    localStorage.setItem('updateId',id);
     this.router.navigate(['/admin-dashboard/update-admin'])
   }
 }

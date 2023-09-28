@@ -20,16 +20,16 @@
                     </tr>
                 </thead>
                 <tbody>
-					<tr *ngFor="let salary of salaries">
+					<tr *ngFor="let salary of employees">
                         <td>{{salary.fullName}}</td>
                         <td>{{salary.email}}</td>
                         <td>{{salary.phoneNumber}}</td>
                         <td>{{salary.position}}</td>
-                        <td>{{salary.joiningDate}}</td>
+                        <td>{{salary.joiningDate | date}}</td>
                         <td>
                             <div class="button-container">
-                                <button class="generate">Generate Salary</button>
-                                <button class="report">Salary Report</button>
+                                <button class="generate" (click) = "GenerateSalary(salary.id)">Generate PaySlip</button>
+                                <!-- <button class="report">Salary Report</button> -->
                               </div> 
                         </td>
                     </tr>			

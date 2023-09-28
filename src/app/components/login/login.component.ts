@@ -25,8 +25,8 @@ export class LoginComponent implements OnInit{
     ngOnInit() : void{
 
       this.loginForm = this.fb.group({
-        userName: ['', Validators.required],
-        password: ['', Validators.required],
+        Email: ['', Validators.required],
+        Password: ['', Validators.required],
       });
 
     }
@@ -39,11 +39,13 @@ export class LoginComponent implements OnInit{
     async LoginUser(){
       this.login = this.loginForm.value;
       console.log(this.login);
+      debugger
       (await this.loginService.sendLoginUser(this.login))
       .subscribe(
         async result => {console.log(result),
         localStorage.clear();
         localStorage.setItem('id',result.id),
+        this.userId = result.id,
         localStorage.setItem('RoleName',result.roleName),{}
         if(localStorage.getItem("RoleName") == "employee"){
           this.router.navigate(['employee-dashboard/employee-details'])
