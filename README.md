@@ -1,27 +1,65 @@
-# PayrollManagementSystemWeb
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
+# Payroll Web App
 
-## Development server
+PayRollWebApp is a web-based payroll management application designed to simplify and automate the process of managing employee salaries. The application provides a user-friendly interface for administrators to manage employee records, calculate salaries, generate payslips, and ensure accurate and timely payroll processing.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Features
+- **Employee Management:** Add, update, and delete employee records with ease.
+- **Salary Calculation:** Automated salary computation based on predefined criteria such as hours worked, overtime, and deductions.
+- **Payslip Generation:** Generate and download detailed payslips for employees.
+- **Role-Based Access:** Secure login and role-based access control for administrators and employees.
+- **Report Generation:** Generate various reports to track payroll expenses and employee payment history.
+- **User-Friendly Interface:** Intuitive and easy-to-navigate web interface.
 
-## Code scaffolding
+## Tech Stack
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+**Server:** Angular, Jenkins, Git, GitHub, Docker, DockerHub 
 
-## Build
+**Deployment:** Azure, MSSQL express 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Backend Reference
 
-## Running unit tests
+For FrontEnd please refer this repository:
+[Payroll API](https://github.com/naveenbabu4/PayrollAPIFinal.git)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Installation
+- For running the application locally install
+   - NodeJS
+   - Angular
+- For deploying the project install
+   - Docker
 
-## Running end-to-end tests
+## Run Locally
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Clone the project
 
-## Further help
+```bash
+  git clone https://github.com/naveenbabu4/PayRollWebApp.git
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Go to the project directory
+
+```bash
+  cd PayRollWebApp
+```
+  
+Install dependencies
+
+```bash
+  npm install
+```
+
+Run the application
+
+```bash
+  npm start
+```
+
+
+## Authors
+
+- Github Profile
+     - [@Naveen Bahunadham](https://github.com/naveenbabu4/)
+-  Contact details:
+    - Naveen Bahunadham
+      - 📧 bsa.naveenbabu@gmail.com
